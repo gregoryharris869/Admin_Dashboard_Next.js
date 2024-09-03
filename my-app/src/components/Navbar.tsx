@@ -14,7 +14,7 @@ import {
 const Navbar = () => {
   return (
     <section className=" bg-primary dark:bg-slate-700">
-      <nav className=" max-w-screen-2xl mx-auto text-white py-2 px-8 flex justify-between">
+      <nav className="  text-white py-2 px-8 flex justify-between">
         <Link href="/">
           <Image src={logo} alt="logo" width={40} />
         </Link>
