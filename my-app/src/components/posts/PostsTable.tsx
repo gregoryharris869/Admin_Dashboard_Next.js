@@ -8,10 +8,10 @@ import {
   TableCaption,
 } from "@/components/ui/table";
 import posts from "@/data/posts";
-import { Post } from "@/types/posts";
 
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { Post } from "../../types/posts";
 
 interface PostTableProps {
   limit?: number;
@@ -19,6 +19,13 @@ interface PostTableProps {
 }
 
 const PostsTable = ({ limit, title }: PostTableProps) => {
+  // Sort post in descending order based on date
+  const sortedPosts: Post[] = [...posts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  // Limit the number of posts
+  const filterPosts = limit ? sortedPosts.slice(0, limit) : sortedPosts;
+
   return (
     <div className="mt-10">
       <h3 className="text-2xl mb-4 font-semibold">{title ? title : "Posts"}</h3>
@@ -35,7 +42,7 @@ const PostsTable = ({ limit, title }: PostTableProps) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {posts.map((post) => (
+          {filterPosts.map((post) => (
             <TableRow key={post.id}>
               <TableCell>{post.title}</TableCell>
               <TableCell className="hidden md:table-cell">
