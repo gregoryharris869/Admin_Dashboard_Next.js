@@ -9,7 +9,6 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
-
 import {
   LayoutDashboard,
   Newspaper,
@@ -23,22 +22,22 @@ import Link from "next/link";
 
 const Sidebar = () => {
   return (
-    <Command className="bg-secondary">
+    <Command className="bg-secondary rounded-none">
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="Suggestions">
           <CommandItem>
             <LayoutDashboard className="mr-2 h-4 w-4" />
-            <Link href="/dashboard">Dashboard</Link>
+            <Link href="/">Dashboard</Link>
           </CommandItem>
           <CommandItem>
             <Newspaper className="mr-2 h-4 w-4" />
-            <Link href="/post">Post</Link>
+            <Link href="/posts">Posts</Link>
           </CommandItem>
           <CommandItem>
             <Folders className="mr-2 h-4 w-4" />
-            <Link href="/catagories">Catagories</Link>
+            <Link href="#">Categories</Link>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
